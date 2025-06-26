@@ -1,43 +1,65 @@
 package com.order.dto;
 
-public class OrderDto {
+import com.order.model.BaseClass;
 
-    private String orderId;
-    private String name;
-    private int qty;
-    private double price;
+import java.util.List;
+
+public class OrderDto extends BaseClass {
+
+    private Long id;
+    //private UserDto placedBy;
+    private float total;
+    private float discount;
+    private List<ProductDto> items;
+    private String status;
 
     public OrderDto() { }
 
-    public String getOrderId() {
-        return orderId;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    /*public UserDto getPlacedBy() {
+        return placedBy;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlacedBy(UserDto placedBy) {
+        this.placedBy = placedBy;
+    }*/
+
+    public float getTotal() {
+        return total;
     }
 
-    public int getQty() {
-        return qty;
+    public void setTotal(float total) {
+        this.total = total;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public float getDiscount() {
+        return discount;
     }
 
-    public double getPrice() {
-        return price;
+    public void setDiscount(float discount) {
+        this.discount = discount;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public List<ProductDto> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ProductDto> items) {
+        this.items = items;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

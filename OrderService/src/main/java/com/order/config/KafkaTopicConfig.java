@@ -9,11 +9,19 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Value("${spring.kafka.producer.topic.name}")
-    private String topicName;
+    @Value("${spring.kafka.producer.topic.name.one}")
+    private String orderTopic;
+
+    @Value("${spring.kafka.producer.topic.name.two}")
+    private String mailTopic;
 
     @Bean
     public NewTopic topic() {
-        return TopicBuilder.name(topicName).build();
+        return TopicBuilder.name(orderTopic).build();
+    }
+
+    @Bean
+    public NewTopic notificationTopic( ){
+        return TopicBuilder.name(mailTopic).build();
     }
 }

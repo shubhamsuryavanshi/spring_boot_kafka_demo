@@ -1,15 +1,11 @@
-package com.order.dto;
-
-import com.order.model.Order;
+package com.order.event;
 
 import java.io.Serializable;
 
 public class OrderEvent implements Serializable {
     String message;
     String status;
-    Order order;
-
-    public OrderEvent() { }
+    Long orderId;
 
     public String getMessage() {
         return message;
@@ -27,12 +23,12 @@ public class OrderEvent implements Serializable {
         this.status = status;
     }
 
-    public Order getOrder() {
-        return order;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     @Override
@@ -40,7 +36,7 @@ public class OrderEvent implements Serializable {
         return "OrderEvent{" +
                 "message='" + message + '\'' +
                 ", status='" + status + '\'' +
-                ", order=" + order +
+                ", orderId=" + orderId +
                 '}';
     }
 }

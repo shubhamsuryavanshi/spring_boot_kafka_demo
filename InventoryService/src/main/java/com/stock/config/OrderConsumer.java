@@ -1,6 +1,6 @@
 package com.stock.config;
 
-import com.order.dto.OrderEvent;
+import com.order.event.OrderEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;

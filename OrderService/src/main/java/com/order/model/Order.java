@@ -1,50 +1,79 @@
 package com.order.model;
 
-public class Order {
+import jakarta.persistence.*;
 
-    private String orderId;
-    private String name;
-    private int qty;
-    private double price;
+import java.io.Serializable;
+import java.util.List;
+
+/*@Data
+@AllArgsConstructor
+@NoArgsConstructor*/
+@Entity
+@Table(name = "order_table")
+public class Order extends BaseClass implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long order_id;
+    private Long placedBy;
+    private Float total;
+    private Float discount;
+    private String status;
+
+    @ManyToMany
+    @JoinTable(
+            name = "prod_order",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "id")    )
+    private List<Product> items;
 
     public Order() { }
 
-    public Order(String orderId, String name, int qty, double price) {
-        this.orderId = orderId;
-        this.name = name;
-        this.qty = qty;
-        this.price = price;
+    public Long getId() {
+        return order_id;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public void setId(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public Long getPlacedBy() {
+        return placedBy;
     }
 
-    public String getName() {
-        return name;
+    public void setPlacedBy(Long placedBy) {
+        this.placedBy = placedBy;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public float getTotal() {
+        return total;
     }
 
-    public int getQty() {
-        return qty;
+    public void setTotal(float total) {
+        this.total = total;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public float getDiscount() {
+        return discount;
     }
 
-    public double getPrice() {
-        return price;
+    public void setDiscount(float discount) {
+        this.discount = discount;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Product> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Product> items) {
+        this.items = items;
     }
 }
