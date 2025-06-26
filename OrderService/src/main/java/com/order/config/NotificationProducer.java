@@ -24,7 +24,7 @@ public class NotificationProducer {
     }
 
     public void sendNotification(EmailEvent emailEvent){
-        log.info(String.format("Notification event -> ",emailEvent.toString()));
+        log.info(String.format("Notification event ->  %s",emailEvent.toString()));
 
         Message<EmailEvent> emailMessage = MessageBuilder
                             .withPayload(emailEvent)
