@@ -13,6 +13,6 @@ public class EmailKafkaConsumer {
 
     @KafkaListener(topics = "notification",groupId = "notify")
     public void consume(EmailEvent emailEvent) {
-        log.info(String.format("Notification received -> ",emailEvent.toString()));
+        log.info(String.format("Notification received ->  %s",emailEvent.toString()));
     }
 }
